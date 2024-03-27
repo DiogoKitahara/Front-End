@@ -19,21 +19,20 @@ function carros(custo) {
 }
 
 function ordenar(n1, n2, n3) {
+    n1 = parseInt(n1);
+    n2 = parseInt(n2);
+    n3 = parseInt(n3);
     var numeros = [n1, n2, n3], aux;
-    if (numeros[0] > numeros[2]) {
-        aux = numeros[2];
-        numeros[2] = numeros[0];
-        numeros[0] = aux;
-    }
-    if (numeros[0] > numeros[1]) {
-        aux = numeros[1];
-        numeros[1] = numeros[0];
-        numeros[0] = aux;
-    }
-    if (numeros[1] > numeros[2]) {
-        aux = numeros[2];
-        numeros[2] = numeros[1];
-        numeros[1] = aux;
+    for(var i = 0; i < 3; i++){
+        for(var j = i + 1; j < 3; j++){
+            if(numeros[i] > numeros[j]){
+                aux = numeros[i];
+                numeros[i] = numeros[j];
+                numeros[j] = aux;
+            }
+        }
     }
     numero_ordem.value = numeros;
 }
+
+//87 101 6
